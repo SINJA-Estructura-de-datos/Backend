@@ -1,7 +1,9 @@
 package com.SINJA.repository;
 
+import com.SINJA.model.Student;
+
 public interface StudentsRepository {
-    ///save(User user);
-    ///delete(User user);
-    ///findById(Long id, User user);
+    Student save(Student student);
+    void delete(Long id);
+    Student findById(Long id);
 }
