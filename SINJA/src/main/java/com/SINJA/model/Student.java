@@ -1,5 +1,10 @@
 package com.SINJA.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Student extends Person{
     private String degree;
     private CampusUdea place;
@@ -13,27 +18,4 @@ public class Student extends Person{
         this.scoreAdmision = scoreAdmision;
     }
 
-    public String getDegree() {
-        return degree;
-    }
-
-    public void setDegree(String degree) {
-        this.degree = degree;
-    }
-
-    public CampusUdea getPlace() {
-        return place;
-    }
-
-    public void setPlace(CampusUdea place) {
-        this.place = place;
-    }
-
-    public Integer getScoreAdmision() {
-        return scoreAdmision;
-    }
-
-    public void setScoreAdmision(Integer scoreAdmision) {
-        this.scoreAdmision = scoreAdmision;
-    }
 }
