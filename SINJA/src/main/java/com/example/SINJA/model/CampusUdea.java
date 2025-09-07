@@ -1,4 +1,4 @@
-package com.SINJA.model;
+package com.example.SINJA.model;
 
 public enum CampusUdea {
     MEDELLIN,

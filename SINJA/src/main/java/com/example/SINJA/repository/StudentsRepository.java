@@ -1,6 +1,6 @@
-package com.SINJA.repository;
+package com.example.SINJA.repository;
 
-import com.SINJA.model.Student;
+import com.example.SINJA.model.Student;
 
 public interface StudentsRepository {
     Student save(Student student);

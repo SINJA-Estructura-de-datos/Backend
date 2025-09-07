@@ -1,8 +1,8 @@
-package com.SINJA.repository.impl;
+package com.example.SINJA.repository.impl;
 
-import com.SINJA.model.CampusUdea;
-import com.SINJA.model.Student;
-import com.SINJA.repository.StudentsRepository;
+import com.example.SINJA.model.CampusUdea;
+import com.example.SINJA.model.Student;
+import com.example.SINJA.repository.StudentsRepository;
 import org.springframework.stereotype.Repository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +16,7 @@ public class StudentsRepositoryImpl implements StudentsRepository {
     @Override
     public Student save(Student student) {
         try{
-            BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\Estudents.txt", true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("C:/Users/brseb/OneDrive/Documentos/Student.txt.txt", true));
                     writer.write((student.getId())+"\t"+student.getName()+"\t"+student.getLastName()
                     +"\t"+student.getBornPlace()+"\t"+student.getDegree()+"\t"+student.getPlace().name()+"\t"+(student.getScoreAdmision()));
                     writer.newLine();
@@ -35,7 +35,7 @@ public class StudentsRepositoryImpl implements StudentsRepository {
     @Override
     public Student findById(Long id) {
         try{
-            BufferedReader reader = new BufferedReader(new FileReader("D:\\Estudents.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("C:/Users/brseb/OneDrive/Documentos/Student.txt.txt"));
             String line;
             while ((line = reader.readLine()) != null){
                 String[] data = line.split("\t");
