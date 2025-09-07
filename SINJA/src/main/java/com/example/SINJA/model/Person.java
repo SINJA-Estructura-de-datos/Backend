@@ -1,4 +1,4 @@
-package com.SINJA.model;
+package com.example.SINJA.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
