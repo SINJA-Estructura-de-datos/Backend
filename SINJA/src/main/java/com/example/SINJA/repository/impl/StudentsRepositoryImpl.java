@@ -16,7 +16,7 @@ public class StudentsRepositoryImpl implements StudentsRepository {
     @Override
     public Student save(Student student) {
         try{
-            BufferedWriter writer = new BufferedWriter(new FileWriter("C:/Users/brseb/OneDrive/Documentos/Student.txt.txt", true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("SINJA/src/main/resources/Students", true));
                     writer.write((student.getId())+"\t"+student.getName()+"\t"+student.getLastName()
                     +"\t"+student.getBornPlace()+"\t"+student.getDegree()+"\t"+student.getPlace().name()+"\t"+(student.getScoreAdmision()));
                     writer.newLine();
@@ -35,7 +35,7 @@ public class StudentsRepositoryImpl implements StudentsRepository {
     @Override
     public Student findById(Long id) {
         try{
-            BufferedReader reader = new BufferedReader(new FileReader("C:/Users/brseb/OneDrive/Documentos/Student.txt.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("SINJA/src/main/resources/Students"));
             String line;
             while ((line = reader.readLine()) != null){
                 String[] data = line.split("\t");
