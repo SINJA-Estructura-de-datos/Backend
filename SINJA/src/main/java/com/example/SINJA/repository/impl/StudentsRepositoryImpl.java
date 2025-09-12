@@ -15,17 +15,25 @@ public class StudentsRepositoryImpl implements StudentsRepository {
 
     @Override
     public Student save(Student student) {
-        try{
-            BufferedWriter writer = new BufferedWriter(new FileWriter("SINJA/src/main/resources/Students", true));
-                    writer.write((student.getId())+"\t"+student.getName()+"\t"+student.getLastName()
-                    +"\t"+student.getBornPlace()+"\t"+student.getDegree()+"\t"+student.getPlace().name()+"\t"+(student.getScoreAdmision()));
-                    writer.newLine();
-                    writer.close();
-        }catch(IOException e){
-            log.error("The student has not been save " + e.getMessage());
+        try {
+            File file = new File("SINJA/src/main/resources/Students");
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+
+            if (file.length() > 0) {
+                writer.newLine();
+            }
+
+            writer.write(student.getId() + "\t" + student.getName() + "\t" + student.getLastName()
+                    + "\t" + student.getBornPlace() + "\t" + student.getDegree() + "\t"
+                    + student.getPlace().name() + "\t" + student.getScoreAdmision());
+
+            writer.close();
+        } catch (IOException e) {
+            log.error("The student has not been saved " + e.getMessage());
         }
         return student;
     }
+
 
     @Override
     public void delete(Long id) {

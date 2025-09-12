@@ -2,9 +2,13 @@ package com.example.SINJA.model;
 
 public enum CampusUdea {
     MEDELLIN,
-    ORIENTE,
-    OCCIDENTE,
-    MAGDALENA_MEDIO,
-    BAJO_CAUCA,
-    URABA
+    APARTADO,
+    ANDES,
+    CAUCASIA,
+    CARMEN_DE_VIBORAL,
+    CAREPA,
+    ENVIGADO,
+    PUERTO_BERRIO,
+    SANTA_FE_DE_ANTIOQUIA,
+    TURBO
 }

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINJA Sistema de Registro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Sistema de Registro SINJA</h1>
+            <p>Sistema informativo del nivel de los jóvenes admitidos</p>
+            <p>Facultad de ingeniería</p>
+        </div>
+
+        <div class="main-content">
+            <!-- Pantalla Principal -->
+            <div id="mainScreen" class="form-section active">
+                <div class="button-group">
+                    <button class="main-btn" onclick="showRegistroForm()">
+                        📝 REGISTRO
+                    </button>
+                    <button class="main-btn" onclick="showConsultaModal()">
+                        🔍 CONSULTAR
+                    </button>
+                </div>
+            </div>
+
+            <!-- Formulario de Registro -->
+            <div id="registroForm" class="form-section">
+                <div style="margin-bottom: 30px;">
+                    <button class="back-btn" onclick="showMainScreen()">← Volver</button>
+                    <h2 style="color: #2c3e50; margin-top: 15px;">Nuevo Registro</h2>
+                </div>
+
+                <form id="personForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="id">ID *</label>
+                            <input type="text" id="id" name="id" required>
+                            <div class="error-message">El ID debe contener solo números</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Nombre *</label>
+                            <input type="text" id="name" name="name" required>
+                            <div class="error-message">El nombre debe contener solo letras y espacios</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Apellido *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                            <div class="error-message">El apellido debe contener solo letras y espacios</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bornPlace">Lugar de Nacimiento *</label>
+                            <input type="text" id="bornPlace" name="bornPlace" required>
+                            <div class="error-message">Este campo es requerido</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="degree">Carrera *</label>
+                            <select id="degree" name="degree" required>
+                                <option value="">Seleccione una carrera</option>
+                                <option value="Bioingeniería">Bioingeniería</option>
+                                <option value="Ingeniería Aeroespacial">Ingeniería Aeroespacial</option>
+                                <option value="Ingeniería de Agroindustrial">Ingeniería de Agroindustrial</option>
+                                <option value="Ingeniería Ambiental">Ingeniería Ambiental</option>
+                                <option value="Ingeniería Bioquímica">Ingeniería Bioquímica</option>
+                                <option value="Ingeniería Civil">Ingeniería Civil</option>
+                                <option value="Ingeniería de Materiales">Ingeniería de Materiales</option>
+                                <option value="Ingeniería de Sistemas">Ingeniería de Sistemas</option>
+                                <option value="Ingeniería de Telecomunicaciones">Ingeniería de Telecomunicaciones</option>
+                                <option value="Ingeniería Eléctrica">Ingeniería Eléctrica</option>
+                                <option value="Ingeniería Electrónica">Ingeniería Electrónica</option>
+                                <option value="Ingeniería Energética">Ingeniería Energética</option>
+                                <option value="Ingeniería Industrial">Ingeniería Industrial</option>
+                                <option value="Ingeniería Mecánica">Ingeniería Mecánica</option>
+                                <option value="Ingeniería Oceanográfica">Ingeniería Oceanográfica</option>
+                                <option value="Ingeniería Química">Ingeniería Química</option>
+                                <option value="Ingeniería Sanitaria">Ingeniería Sanitaria</option>
+                                <option value="Ingeniería Urbana">Ingeniería Urbana</option>
+                            </select>
+                            <div class="error-message">Debe seleccionar una carrera</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="place">Campus *</label>
+                            <select id="place" name="place" required>
+                                <option value="">Seleccione un campus</option>
+                                <option value="MEDELLIN">Medellín</option>
+                                <option value="APARTADO">Apartadó</option>
+                                <option value="ANDES">Andes</option>
+                                <option value="CAUCASIA">Caucasia</option>
+                                <option value="CARMEN DE VIBORAL">Carmen de Viboral</option>
+                                <option value="CAREPA">Carepa</option>
+                                <option value="ENVIGADO">Envigado</option>
+                                <option value="PUERTO BERRIO">Puerto Berrío</option>
+                                <option value="SANTA FE DE ANTIOQUIA">Santa Fe de Antioquia</option>
+                                <option value="TURBO">Turbo</option>
+                            </select>
+                            <div class="error-message">Debe seleccionar un campus</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="scoreAdmision">Puntaje de Admisión *</label>
+                            <input type="text" id="scoreAdmision" name="scoreAdmision" required>
+                            <div class="error-message">El puntaje debe ser un número entre 0 y 100</div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Registrar Persona</button>
+                </form>
+
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Procesando registro...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Consulta -->
+    <div id="consultaModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Consultar Persona</h3>
+            <input type="text" id="consultaId" placeholder="Ingrese el ID a buscar">
+            <button class="submit-btn" onclick="buscarPersona()">🔍 BUSCAR</button>
+            
+            <div class="loading" id="consultaLoading">
+                <div class="spinner"></div>
+                <p>Buscando...</p>
+            </div>
+            
+            <div id="resultadoConsulta"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
