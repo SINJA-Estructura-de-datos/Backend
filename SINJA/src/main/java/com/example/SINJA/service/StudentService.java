@@ -4,6 +4,6 @@ import com.example.SINJA.model.Student;
 
 public interface StudentService {
     Student save(Student student);
-    void delete(Long id);
     Student findById(Long id);
+    void deleteById(Long id);
 }

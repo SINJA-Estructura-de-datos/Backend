@@ -19,13 +19,14 @@ public class StudentServiceImpl implements StudentService {
         return studentsRepository.save(student);
     }
 
-    @Override
-    public void delete(Long id) {
-
-    }
 
     @Override
     public Student findById(Long id) {
         return studentsRepository.findById(id);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+
     }
 }
